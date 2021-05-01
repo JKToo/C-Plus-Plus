@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+bool isMember(int arr[], int num)
+{
+  int i = 0;
+  while (arr[i] != NULL)
+  {
+    if (num != arr[i])
+    {
+      return isMember(arr + 1, num);
+      return false;
+    }
+    if (num == arr[i])
+    {
+      return true;
+      return isMember(arr + 1, num);
+    }
+  }
+}
+
+int main()
+{
+  int arr[5] = { 1, 2, 3, 4, 5 };
+  if (isMember(arr, 10) == 1)
+  cout << "True";
+  else
+  cout << "False";
+}

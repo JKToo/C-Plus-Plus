@@ -1,0 +1,93 @@
+#include <iostream>
+using namespace std;
+
+class Population
+{
+private:
+    double population;
+    double births;
+    double deaths;
+
+public:
+    Population() { population = 0; births = 0; deaths = 0; }
+    Population(double p, double b, double d) {
+        if (p >= 1) population = p;
+        else population = 1;
+
+        if (b >= 0) births = b;
+        else births = 0;
+
+        if (d >= 0) deaths = d;
+        else deaths = 0;
+    }
+
+    void setPopulation(double p)
+    {
+        if (p >= 0) population = p;
+        else population = 0;
+    }
+
+    void setBirths(double b)
+    {
+        if (b >= 0) births = b;
+        else births = 0;
+    }
+
+    void setDeaths(double d)
+    {
+        if (d >= 0) deaths = d;
+        else deaths = 0;
+    } 
+    double getPopulation()
+    {
+        return population;
+    }
+
+    double getBirths()
+    {
+        return births;
+    }
+    double getDeaths()
+    {
+        return deaths;
+    }
+
+    double getBirthrate()
+    {
+        return (births / population);
+    }
+
+    double getDeathrate()
+    {
+        return (deaths / population);
+    }
+};
+
+int main()
+{
+    double b, d, p;
+    Population amount;
+    //amount.setPopulation(10000);
+    //amount.setBirths(8300);
+    //amount.setDeaths(6040);
+    //cout << "Population: " << amount.getPopulation() << ", Births: " << amount.getBirths() << ", Deaths: " << amount.getDeaths() << endl;
+    //cout << "Birthrate: " << amount.getBirthrate() << endl;
+    //cout << "Deathrate: " << amount.getDeathrate();
+
+    //User input
+    cout << "What is the population? ";
+    cin >> p;
+    amount.setPopulation(p);
+    cout << endl;
+    cout << "What is the number of births? ";
+    cin >> b;
+    amount.setBirths(b);
+    cout << endl;
+    cout << "What is the number of deaths? ";
+    cin >> d;
+    amount.setDeaths(d);
+    cout << endl;
+
+    cout << "The birth rate of this population is: " << amount.getBirthrate() << endl;
+    cout << "The death rate of this population is: " << amount.getDeathrate() << endl;
+}
